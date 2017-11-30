@@ -1,0 +1,28 @@
+{
+  "name": "local-cache",
+  "version": "1.0.0",
+  "description": "Local code level cache in Javascript, better use for Apis to reduce frequent hits to server",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adeelakram696/local-cache.git"
+  },
+  "keywords": [
+    "local",
+    "cache",
+    "api",
+    "services",
+    "javascript",
+    "react",
+    "angular"
+  ],
+  "author": "Adeel Akram",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adeelakram696/local-cache/issues"
+  },
+  "homepage": "https://github.com/adeelakram696/local-cache#readme"
+}

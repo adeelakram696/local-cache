@@ -14,7 +14,7 @@ Basic useful feature list:
 installation
 ===================
 
-    npm install local-cache
+    npm install js-local-cache
 
 Class Functions
 ===================
@@ -40,7 +40,7 @@ Params Types:
 Coding Example
 -------------
 ```javascript
-import Cache from 'local-cache';
+import Cache from 'js-local-cache';
 
 function getCustomerList(token, pageNum, forceUpdate){
 // token can be used as unique key or any thing you

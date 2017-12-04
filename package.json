@@ -1,5 +1,5 @@
 {
-  "name": "local-cache",
+  "name": "js-local-cache",
   "version": "1.0.0",
   "description": "Local code level cache in Javascript, better use for Apis to reduce frequent hits to server",
   "main": "index.js",

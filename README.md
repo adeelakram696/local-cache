@@ -27,8 +27,9 @@ Functions List:
     clearAllCache() // Use always when logged out
 
 Params Types:
+
 | Param     | Type | Required   | Default   |
-| :------- | ----: | :---: | :---: |
+| ------- | ---- | --- | --- |
 | identifier | String Or Integer | Required|     |
 | key | String Or Integer / unique | Required|     |
 | data | Any | Required |     |

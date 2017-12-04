@@ -1,6 +1,6 @@
 class LocalCache {
   constructor() {
-    this.cachedData = [];
+    this.cachedData = {};
   }
 
   // it removes selected object from a given array
@@ -21,7 +21,7 @@ class LocalCache {
       return false;
     });
     if (index > -1) {
-      arr.slice(index, 1);
+      arr.splice(index, 1);
     }
   };
   // set data into cache on given key, extraParam inside given identifier
@@ -33,14 +33,14 @@ class LocalCache {
     cacheTimeout: miliseconds as number
     extraParama: number or string
   */
-  setData = ({
+  setData = (
     identifier,
     key,
     data = null, // default null
     cacheTimeout = 300000, // default 5 minutes
     extraParam = null, // default null
-  }) => {
-    if (!(this.cachedData[identifier].length > 0)) {
+  ) => {
+    if (!((this.cachedData[identifier] || []).length > 0)) {
       this.cachedData[identifier] = [];
     }
     this.cachedData[identifier].push({
@@ -61,13 +61,13 @@ class LocalCache {
     *key: string
     extraParama: number or string
   */
-  getData = ({
+  getData = (
     identifier,
     key,
     extraParam = null, // default null
-  }) => {
-    const cacheData = this.cachedData[identifier].find(data => (
-      data.uniquekey === uniquekey &&
+  ) => {
+    const cacheData = (this.cachedData[identifier] || []).find(data => (
+      data.key === key &&
       data.extraParam === extraParam
     ));
     return (cacheData && cacheData.data) || null;
@@ -75,7 +75,10 @@ class LocalCache {
 
   // clear all cached data
   clearAllCache = () => {
-    this.cacheData = [];
+    (Object.keys(this.cachedData || {}) || []).forEach(identifier => {
+      delete this.cachedData[identifier];
+    });
+    this.cachedData = {};
   };
 
   // clear selected key data inside identifier
@@ -85,11 +88,11 @@ class LocalCache {
     *key: string
     extraParama: number or string
   */
-  clearData = ({
+  clearData = (
     identifier,
     key,
     extraParam = null, // default null
-  }) => {
+  ) => {
     this.removeObjFromArray(this.cachedData[identifier], 'key', key, extraParam);
   };
 
@@ -98,10 +101,10 @@ class LocalCache {
   Params
     *identifier: string
   */
-  clearIdentfier = ({
+  clearIdentifier = (
     identifier,
-  }) => {
-    this.cachedData[identifier] = [];
+  ) => {
+    delete this.cachedData[identifier];
   }
 
 }

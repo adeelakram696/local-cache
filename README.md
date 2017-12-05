@@ -1,5 +1,6 @@
 Local Cache
 ===================
+[![Build Status](https://travis-ci.org/adeelakram696/local-cache.svg?branch=master)](https://travis-ci.org/adeelakram696/local-cache)
 [![Coverage Status](https://coveralls.io/repos/github/adeelakram696/local-cache/badge.svg?branch=master)](https://coveralls.io/github/adeelakram696/local-cache?branch=master)
 
 Local cache will cache your application data very useful for API responses to cache which reduces server hits. Easy to use and Easy to understand

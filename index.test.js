@@ -8,7 +8,7 @@ const mockData = [{
   mockId: 2
 }
 ];
-const identifiers = ['a', 'b'];
+const groups = ['a', 'b'];
 const keys = [1,2];
 
 test('blank add with no error', () => {
@@ -21,67 +21,67 @@ test('blank fetch with no error', () => {
 
 test('blank clear with no error', () => {
   expect(LocalCache.clearData()).toBe(undefined);
-  expect(LocalCache.clearIdentifier()).toBe(undefined);
+  expect(LocalCache.clearGroup()).toBe(undefined);
   expect(LocalCache.clearAllCache()).toBe(undefined);
 });
 
 test('set and get data', () => {
   LocalCache.setData(
-    identifiers[0],
+    groups[0],
     keys[0],
     mockData[0],
     300000
   );
   expect(LocalCache.getData(
-    identifiers[0],
+    groups[0],
     keys[0]
   )).toBe(mockData[0]);
 });
 
 test('clear data', () => {
   LocalCache.clearData(
-    identifiers[0],
+    groups[0],
     keys[0]
   );
   expect(LocalCache.getData(
-    identifiers[0],
+    groups[0],
     keys[0]
   )).toBe(null);
 });
 
-test('Add data and clear identifier', () => {
+test('Add data and clear group', () => {
   LocalCache.setData(
-    identifiers[0],
+    groups[0],
     keys[0],
     mockData[0],
     300000
   );
   LocalCache.setData(
-    identifiers[1],
+    groups[1],
     keys[1],
     mockData[1],
     300000
   );
-  LocalCache.clearIdentifier(
-    identifiers[0],
+  LocalCache.clearGroup(
+    groups[0],
   );
   expect(LocalCache.getData(
-    identifiers[0],
+    groups[0],
     keys[0]
   )).toBe(null);
   expect(LocalCache.getData(
-    identifiers[1],
+    groups[1],
     keys[1]
   )).toBe(mockData[1]);
 });
 
 test('remove data from array false', () => {
   LocalCache.clearData(
-    identifiers[1],
+    groups[1],
     keys[0]
   );
   expect(LocalCache.getData(
-    identifiers[1],
+    groups[1],
     keys[1]
   )).toBe(mockData[1]);
 });
@@ -89,7 +89,7 @@ test('remove data from array false', () => {
 test('clear All data', () => {
   LocalCache.clearAllCache();
   expect(LocalCache.getData(
-    identifiers[1],
+    groups[1],
     keys[1]
   )).toBe(null);
 });
@@ -97,14 +97,14 @@ test('clear All data', () => {
 jest.useFakeTimers();
 test('check cache timeout clear', () => {
   LocalCache.setData(
-    identifiers[0],
+    groups[0],
     keys[0],
     mockData[0],
     1000
   );
   jest.runTimersToTime(1010);
   expect(LocalCache.getData(
-    identifiers[0],
+    groups[0],
     keys[0]
   )).toBe(null);
 });
@@ -112,7 +112,7 @@ test('check cache timeout clear', () => {
 test('clear All data when already empty', () => {
   LocalCache.clearAllCache();
   expect(LocalCache.getData(
-    identifiers[1],
+    groups[1],
     keys[1]
   )).toBe(null);
 });

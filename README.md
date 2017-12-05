@@ -1,5 +1,7 @@
 Local Cache
 ===================
+[![Coverage Status](https://coveralls.io/repos/adeelakram696/local-cache/badge.svg?branch=master)](https://coveralls.io/r/adeelakram696/local-cache?branch=master)
+
 Local cache will cache your application data very useful for API responses to cache which reduces server hits. Easy to use and Easy to understand
 
 ----------

@@ -101,7 +101,7 @@ class LocalCache {
   Params
     *identifier: string
   */
-  clearIdentifier = (
+  clearGroup = (
     identifier,
   ) => {
     delete this.cachedData[identifier];

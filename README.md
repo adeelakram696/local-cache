@@ -74,23 +74,6 @@ Unit test provided with 100% Coverage
 
     npm run test
 
-      ✓ blank add with no error (5ms)
-      ✓ blank fetch with no error (1ms)
-      ✓ blank clear with no error (1ms)
-      ✓ set and get data (1ms)
-      ✓ clear data
-      ✓ Add data and clear identifier (1ms)
-      ✓ remove data from array false
-      ✓ clear All data (1ms)
-      ✓ check cache timeout clear (1ms)
-      ✓ clear All data when already empty
-
-    Test Suites: 1 passed, 1 total
-    Tests:       10 passed, 10 total
-    Snapshots:   0 total
-    Time:        1.751s
-    Ran all test suites.
-
 **License**
 
     MIT

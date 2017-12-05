@@ -9,7 +9,7 @@ Basic useful feature list:
 
  * Cache any type of data on js level
  * Auto clear in given time with each data [default 5 mint]
- * identifier/group base cache
+ * group base cache
  * Static Cache overall the application
  * Extra parameter provided to search, divide same identifier and key with paginated data
 
@@ -22,17 +22,17 @@ Class Functions
 ===================
 Functions List:
 
-    setData(identifier, key, data, cachedTimeout, extraParam)
-    getData(identifier, key, extraParam)
-    clearData(identifier, key, extraParam)
-    clearIdentfier(identifier)
+    setData(group, key, data, cachedTimeout, extraParam)
+    getData(group, key, extraParam)
+    clearData(group, key, extraParam)
+    clearGroup(group)
     clearAllCache() // Use always when logged out
 
 Params Types:
 
 | Param     | Type | Required   | Default   |
 | ------- | ---- | --- | --- |
-| identifier | String Or Integer | Required|     |
+| group | String Or Integer | Required|     |
 | key | String Or Integer / unique | Required|     |
 | data | Any | Required |     |
 | cachedTimeout | Miliseconds | Optional |  300000 //5 mints   |
@@ -52,7 +52,7 @@ const cacheData = Cache.getData('customer', token, pageNum);
 if(forceUpdate){
   Cache.clearData('customer', token, pageNum);
    // OR
-  Cache.clearIdentfier('customer');
+  Cache.clearGroup('customer');
 }
 if(cacheData && !forceUpdate){
   return new Promise((resolve) => {

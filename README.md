@@ -20,7 +20,7 @@ Basic useful feature list:
 installation
 ===================
 
-    npm install js-local-cache
+    npm install js-local-cache --save
 
 Class Functions
 ===================

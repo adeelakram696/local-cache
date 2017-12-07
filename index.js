@@ -102,7 +102,7 @@ class LocalCache {
     *identifier: string
   */
   clearGroup(
-    identifier = 'default',
+    identifier = 'default'
   ) {
     delete this.cachedData[identifier];
   }
@@ -110,4 +110,4 @@ class LocalCache {
 }
 
 // to make it singelton its construction initiated while export.
-export default new LocalCache();
+module.exports = new LocalCache();

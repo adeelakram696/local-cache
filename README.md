@@ -54,7 +54,7 @@ function getCustomerList(token, pageNum, forceUpdate){
 // in case forceUpdate
 const cacheData = Cache.getData(token, pageNum, 'customer');
 if(forceUpdate){
-  Cache.clearData(token, pageNum, 'customer');
+  Cache.clearData(token, 'customer', pageNum);
    // OR
   Cache.clearGroup('customer');
 }

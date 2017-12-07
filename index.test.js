@@ -27,93 +27,93 @@ test('blank clear with no error', () => {
 
 test('set and get data', () => {
   LocalCache.setData(
-    groups[0],
     keys[0],
     mockData[0],
-    300000
+    300000,
+    groups[0]
   );
   expect(LocalCache.getData(
-    groups[0],
-    keys[0]
+    keys[0],
+    groups[0]
   )).toBe(mockData[0]);
 });
 
 test('clear data', () => {
   LocalCache.clearData(
-    groups[0],
-    keys[0]
+    keys[0],
+    groups[0]
   );
   expect(LocalCache.getData(
-    groups[0],
-    keys[0]
+    keys[0],
+    groups[0]
   )).toBe(null);
 });
 
 test('Add data and clear group', () => {
   LocalCache.setData(
-    groups[0],
     keys[0],
     mockData[0],
-    300000
+    300000,
+    groups[0]
   );
   LocalCache.setData(
-    groups[1],
     keys[1],
     mockData[1],
-    300000
+    300000,
+    groups[1]
   );
   LocalCache.clearGroup(
     groups[0],
   );
   expect(LocalCache.getData(
-    groups[0],
-    keys[0]
+    keys[0],
+    groups[0]
   )).toBe(null);
   expect(LocalCache.getData(
-    groups[1],
-    keys[1]
+    keys[1],
+    groups[1]
   )).toBe(mockData[1]);
 });
 
 test('remove data from array false', () => {
   LocalCache.clearData(
-    groups[1],
-    keys[0]
+    keys[0],
+    groups[1]
   );
   expect(LocalCache.getData(
-    groups[1],
-    keys[1]
+    keys[1],
+    groups[1]
   )).toBe(mockData[1]);
 });
 
 test('clear All data', () => {
   LocalCache.clearAllCache();
   expect(LocalCache.getData(
-    groups[1],
-    keys[1]
+    keys[1],
+    groups[1]
   )).toBe(null);
 });
 
 jest.useFakeTimers();
 test('check cache timeout clear', () => {
   LocalCache.setData(
-    groups[0],
     keys[0],
     mockData[0],
-    1000
+    1000,
+    groups[0]
   );
   jest.runTimersToTime(1010);
   expect(LocalCache.getData(
-    groups[0],
-    keys[0]
+    keys[0],
+    groups[0]
   )).toBe(null);
 });
 
 test('clear All data when already empty', () => {
   LocalCache.clearAllCache();
   expect(LocalCache.getData(
-    groups[1],
-    keys[1]
+    keys[1],
+    groups[1]
   )).toBe(null);
 });
 

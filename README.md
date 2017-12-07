@@ -26,9 +26,9 @@ Class Functions
 ===================
 Functions List:
 
-    setData(group, key, data, cachedTimeout, extraParam)
-    getData(group, key, extraParam)
-    clearData(group, key, extraParam)
+    setData(key, data, cachedTimeout, group, extraParam)
+    getData(key, group, extraParam)
+    clearData(key, group, extraParam)
     clearGroup(group)
     clearAllCache() // Use always when logged out
 
@@ -36,10 +36,10 @@ Params Types:
 
 | Param     | Type | Required   | Default   |
 | ------- | ---- | --- | --- |
-| group | String Or Integer | Required|     |
 | key | String Or Integer / unique | Required|     |
 | data | Any | Required |     |
 | cachedTimeout | Miliseconds | Optional |  300000 //5 mints   |
+| group | String Or Integer | Optional| 'default'    |
 | extraParam | String Or Integer |   Optional   | null|
 
 
@@ -52,9 +52,9 @@ import Cache from 'js-local-cache';
 function getCustomerList(token, pageNum, forceUpdate){
 // token can be used as unique key or any thing you
 // in case forceUpdate
-const cacheData = Cache.getData('customer', token, pageNum);
+const cacheData = Cache.getData(token, pageNum, 'customer');
 if(forceUpdate){
-  Cache.clearData('customer', token, pageNum);
+  Cache.clearData(token, pageNum, 'customer');
    // OR
   Cache.clearGroup('customer');
 }
@@ -66,7 +66,7 @@ if(cacheData && !forceUpdate){
 
   return promise((resolve, reject) => {
     request(url).end(response => {
-      Cache.setData('customer', token, response, 100000, pageNum);
+      Cache.setData(token, response, 100000, 'customer', pageNum);
       // this data will be wipedout after 100000 miliseconds
       resolve(response);
     });

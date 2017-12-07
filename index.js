@@ -11,7 +11,7 @@ class LocalCache {
     *val: value of key as string
     *extraParama: number or string
   */
-  removeObjFromArray = (arr = [], key, val, extraParam) => {
+  removeObjFromArray(arr = [], key, val, extraParam){
     let index = -1;
     arr.some((obj, ind) => {
       if (obj[key] === val && obj.extraParam === extraParam) {
@@ -33,13 +33,13 @@ class LocalCache {
     cacheTimeout: miliseconds as number
     extraParama: number or string
   */
-  setData = (
-    identifier,
+  setData(
     key,
     data = null, // default null
     cacheTimeout = 300000, // default 5 minutes
-    extraParam = null, // default null
-  ) => {
+    identifier = 'default',
+    extraParam = null // default null
+  ) {
     if (!((this.cachedData[identifier] || []).length > 0)) {
       this.cachedData[identifier] = [];
     }
@@ -61,11 +61,11 @@ class LocalCache {
     *key: string
     extraParama: number or string
   */
-  getData = (
-    identifier,
+  getData(
     key,
-    extraParam = null, // default null
-  ) => {
+    identifier = 'default',
+    extraParam = null // default null
+  ) {
     const cacheData = (this.cachedData[identifier] || []).find(data => (
       data.key === key &&
       data.extraParam === extraParam
@@ -74,7 +74,7 @@ class LocalCache {
   };
 
   // clear all cached data
-  clearAllCache = () => {
+  clearAllCache(){
     (Object.keys(this.cachedData || {}) || []).forEach(identifier => {
       delete this.cachedData[identifier];
     });
@@ -88,11 +88,11 @@ class LocalCache {
     *key: string
     extraParama: number or string
   */
-  clearData = (
-    identifier,
+  clearData(
     key,
-    extraParam = null, // default null
-  ) => {
+    identifier = 'default',
+    extraParam = null // default null
+  ) {
     this.removeObjFromArray(this.cachedData[identifier], 'key', key, extraParam);
   };
 
@@ -101,9 +101,9 @@ class LocalCache {
   Params
     *identifier: string
   */
-  clearGroup = (
-    identifier,
-  ) => {
+  clearGroup(
+    identifier = 'default',
+  ) {
     delete this.cachedData[identifier];
   }
 

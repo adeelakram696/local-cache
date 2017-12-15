@@ -7,7 +7,7 @@ Local Cache
 [![HitCount](http://hits.dwyl.io/adeelakram696/local-cache.svg)](http://hits.dwyl.io/adeelakram696/local-cache)
 [![downloads][downloads-image]][downloads-url]
 
-[downloads-image]: https://img.shields.io/npm/dm/js-local-cache.svg?style=flat
+[downloads-image]: https://img.shields.io/npm/dt/js-local-cache.svg?style=flat
 [downloads-url]: https://npmjs.org/package/js-local-cache
 
 Local cache will cache your application data very useful for API responses to cache which reduces server hits. Easy to use and Easy to understand

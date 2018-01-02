@@ -1,18 +1,22 @@
 {
   "name": "js-local-cache",
   "version": "1.1.4",
-  "description": "Local code level cache in Javascript, better use for Apis to reduce frequent hits to server",
-  "main": "index.js",
+  "description": "Local code level cache in JavaScript. Better use of APIs to reduce frequent hits to server",
+  "main": "lib/index.js",
   "scripts": {
+    "build": "babel src -d lib",
     "coverage": "jest --no-cache --coverage",
     "test": "jest --coverage && ./node_modules/istanbul/lib/cli.js cover jest",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
+    "prepublish": "npm run build && npm run test"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/adeelakram696/local-cache.git"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
     "babel-jest": "^21.2.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
